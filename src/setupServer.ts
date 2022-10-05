@@ -13,11 +13,12 @@ import HTTP_STATUS from 'http-status-codes';
 import 'express-async-errors';
 import Logger from 'bunyan';
 
-import applicationRoutes from './routes';
-import { config } from './config';
-import { CustomError, IErrorResponse } from './shared/globals/helpers/error-handler';
+import applicationRoutes from '@root/routes';
+import { config } from '@root/config';
+import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
 
 const SERVER_PORT = 5000;
+
 const log: Logger = config.createLogger('server');
 
 export class ChattyServer {
@@ -116,6 +117,6 @@ export class ChattyServer {
     });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   private socketIOConnections(_io: SocketServer): void {}
 }
